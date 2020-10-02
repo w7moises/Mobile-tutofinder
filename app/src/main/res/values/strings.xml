@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">TutoFinder</string>
+    <string name="mi_perfil">Mi Perfil</string>
+    <string name="mis_clases">Mis Clases</string>
+    <string name="tutorias">Tutorías</string>
+    <string name="anuncios">Mis Anuncios</string>
+    <string name="todo">TODO</string>
+    <string name="foto_de_estudiante">foto de estudiante</string>
+    <string name="estudiante_henrry_bustos">Estudiante Henrry Bustos</string>
+    <string name="curso_lgebra">Curso: Álgebra</string>
+    <string name="tiempo_2_horas">Tiempo: 2 horas</string>
+</resources>
