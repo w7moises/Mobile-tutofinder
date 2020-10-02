@@ -6,7 +6,7 @@
     <string name="anuncios">Mis Anuncios</string>
     <string name="todo">TODO</string>
     <string name="foto_de_estudiante">foto de estudiante</string>
-    <string name="estudiante_henrry_bustos">Estudiante Henrry Bustos</string>
+    <string name="estudiante_henrry_bustos">Modalidad: Virtual</string>
     <string name="curso_lgebra">Curso: Álgebra</string>
     <string name="tiempo_2_horas">Tiempo: 2 horas</string>
 </resources>
