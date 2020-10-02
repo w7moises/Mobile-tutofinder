@@ -11,4 +11,6 @@
     <string name="tiempo_2_horas">Tiempo: 2 horas</string>
     <string name="Descripcion">Descripcion</string>
     <string name="Calificacion">Calificacion</string>
+    <string name="modalidad_virtual">Modalidad: Virtual</string>
+    <string name="buscar_mis_anuncios">Buscar mis anuncios</string>
 </resources>
