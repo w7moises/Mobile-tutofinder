@@ -9,4 +9,6 @@
     <string name="estudiante_henrry_bustos">Modalidad: Virtual</string>
     <string name="curso_lgebra">Curso: Álgebra</string>
     <string name="tiempo_2_horas">Tiempo: 2 horas</string>
+    <string name="Descripcion">Descripcion</string>
+    <string name="Calificacion">Calificacion</string>
 </resources>

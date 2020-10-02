@@ -7,7 +7,7 @@
     tools:context=".ver_informe">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvContact"
+        android:id="@+id/rvInforme"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="10dp"
