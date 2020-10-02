@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".mis_anuncios"></activity>
+        <activity android:name=".MisClases"></activity>
+        <activity android:name=".BuscarClases" />
+        <activity android:name=".mis_anuncios" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
