@@ -17,5 +17,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        ibTutorias.setOnClickListener{
+            val intent:Intent = Intent(this, BuscarClases::class.java)
+            startActivity(intent)
+        }
+
     }
 }
