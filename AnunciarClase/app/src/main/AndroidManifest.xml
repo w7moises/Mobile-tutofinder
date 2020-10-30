@@ -9,9 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ver_informe"></activity>
-        <activity android:name=".crear_informe" />
-        <activity android:name=".mis_clases" />
+        <activity android:name=".ver_tutoria"></activity>
+        <activity android:name=".anunciar_tutoria" />
+        <activity android:name=".mis_tutorias" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

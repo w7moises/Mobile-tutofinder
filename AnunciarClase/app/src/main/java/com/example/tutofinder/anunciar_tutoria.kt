@@ -7,12 +7,12 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
-import kotlinx.android.synthetic.main.activity_crear_informe.*
+import kotlinx.android.synthetic.main.activity_anunciar_clase.*
 
-class crear_informe : AppCompatActivity() {
+class anunciar_tutoria : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_crear_informe)
+        setContentView(R.layout.activity_anunciar_clase)
     }
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val inflater:MenuInflater = menuInflater
@@ -25,13 +25,14 @@ class crear_informe : AppCompatActivity() {
     }
 
     private fun saveContact() {
-        val descripcion = etDescripcion.text.toString()
-        val calificacion = etCalificacion.text.toString()
-
+        val modalidad = etModalidad.text.toString()
+        val curso = etCurso.text.toString()
+        val tiempo = etTiempo.text.toString()
         val intent = Intent()
 
-        intent.putExtra("KeyDescripcion", descripcion)
-        intent.putExtra("KeyCalificacion", calificacion)
+        intent.putExtra("KeyModalidad", modalidad)
+        intent.putExtra("KeyCurso", curso)
+        intent.putExtra("KeyTiempo", tiempo)
 
         setResult(Activity.RESULT_OK, intent)
         finish()

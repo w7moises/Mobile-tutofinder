@@ -8,26 +8,26 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import androidx.recyclerview.widget.LinearLayoutManager
-import kotlinx.android.synthetic.main.activity_ver_informe.*
+import kotlinx.android.synthetic.main.activity_ver_tutoria.*
 
-class ver_informe : AppCompatActivity() {
+class ver_tutoria : AppCompatActivity() {
     val REQUEST_CODE = 1
-    var informes = ArrayList<Informe>()
-    var informeAdapter = InformeAdapter(informes)
+    var tutorias = ArrayList<Tutoria>()
+    var tutoriaAdapter = TutoriaAdapter(tutorias)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_ver_informe)
-        loadInformes()
+        setContentView(R.layout.activity_ver_tutoria)
+        loadTutorias()
         initView()
     }
 
-    fun loadInformes() {
-        informes.add(Informe("Problemas en ecuacion de segundo grado","14"))
+    fun loadTutorias() {
+        tutorias.add(Tutoria("Virtual","Algebra","50"))
     }
 
     private fun initView() {
-        rvInforme.adapter = informeAdapter
-        rvInforme.layoutManager = LinearLayoutManager(this)
+        rvTutoria.adapter = tutoriaAdapter
+        rvTutoria.layoutManager = LinearLayoutManager(this)
     }
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val inflater: MenuInflater = menuInflater
@@ -35,7 +35,7 @@ class ver_informe : AppCompatActivity() {
         return true
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val intent = Intent(this, crear_informe::class.java)
+        val intent = Intent(this, anunciar_tutoria::class.java)
         startActivityForResult(intent, REQUEST_CODE)
 
         return super.onOptionsItemSelected(item)
@@ -45,12 +45,12 @@ class ver_informe : AppCompatActivity() {
 
         if (requestCode == REQUEST_CODE){
             if (resultCode == Activity.RESULT_OK){
-                val descripcion = data!!.getStringExtra("KeyDescripcion")
-                val calificacion = data!!.getStringExtra("KeyCalificacion")
+                val modalidad = data!!.getStringExtra("KeyModalidad")
+                val curso = data!!.getStringExtra("KeyCurso")
+                val tiempo = data!!.getStringExtra("KeyTiempo")
+                val informe = Tutoria(modalidad, curso, tiempo)
 
-                val informe = Informe(descripcion,calificacion)
-
-                informes.add(informe)
+                tutorias.add(informe)
             }
         }
     }
