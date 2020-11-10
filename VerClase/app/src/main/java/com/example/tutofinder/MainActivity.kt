@@ -15,10 +15,6 @@ class MainActivity : AppCompatActivity() {
             val intent:Intent = Intent(this, mis_clases::class.java)
             startActivity(intent)
         }
-        ibAnuncios.setOnClickListener{
-            val intent:Intent = Intent(this, MisAnuncios::class.java)
-            startActivity(intent)
-        }
 
     }
 }

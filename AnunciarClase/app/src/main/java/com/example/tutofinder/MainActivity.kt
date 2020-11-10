@@ -11,8 +11,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main);
 
-        ibMisClases.setOnClickListener{
-            val intent:Intent = Intent(this, mis_clases::class.java)
+        ibTutorias.setOnClickListener{
+            val intent:Intent = Intent(this, ver_tutoria::class.java)
             startActivity(intent)
         }
 
