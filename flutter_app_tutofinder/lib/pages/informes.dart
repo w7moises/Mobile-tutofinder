@@ -33,12 +33,6 @@ class _InformesState extends State<Informes> {
       appBar: new AppBar(
         title: Text('Mis Informes'),
         backgroundColor: Colors.blue,
-        actions: <Widget>[
-          IconButton(
-              icon: Icon(
-                  Icons.add),
-              onPressed: () {})
-        ],
       ),
       body: ListView.builder(
           itemCount: data == null ? 0 : data.length,
