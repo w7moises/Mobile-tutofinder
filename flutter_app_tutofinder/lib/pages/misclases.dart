@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_app_tutofinder/pages/informes.dart';
 import 'package:http/http.dart' as http;
 
 class MisClases extends StatefulWidget {
@@ -11,7 +12,6 @@ class MisClases extends StatefulWidget {
 class _MisClasesState extends State<MisClases> {
   String url = 'https://tutofinder-movil.herokuapp.com/tutorias';
   List data;
-
   Future<String> makeRequest() async{
     var response = await http.get(Uri.encodeFull(url));
 
@@ -36,7 +36,11 @@ class _MisClasesState extends State<MisClases> {
           IconButton(
               icon: Icon(
                   Icons.chrome_reader_mode),
-              onPressed: () {})
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (BuildContext context) => Informes())
+                );
+              })
         ],
       ),
       body: ListView.builder(
@@ -44,9 +48,9 @@ class _MisClasesState extends State<MisClases> {
           itemBuilder: (BuildContext context, i){
             return ListTile(
               title: Text('Curso: ' + data[i]['curso']['nombre']),
-              subtitle: Text('Tiempo: ' + data[i]['cantidadMinutos'].toString() + ' minutos'),
-              trailing: Icon(Icons.comment),
-              leading: Icon(Icons.account_circle),
+              subtitle: Text('Docente: ' + data[i]['docente']['nombre']+ ' ' + data[i]['docente']['apellido']),
+              trailing: Text(data[i]['cantidadMinutos'].toString() + 'minutos'),
+              leading: Text(data[i]['id'].toString()),
               onTap: (){
 
               },
