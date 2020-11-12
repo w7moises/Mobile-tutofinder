@@ -1,20 +1,21 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_app_tutofinder/pages/informes.dart';
 import 'package:http/http.dart' as http;
 
-class MisClases extends StatefulWidget {
+class Informes extends StatefulWidget {
+  int id;
+  Informes([this.id]);
   @override
-  _MisClasesState createState() => _MisClasesState();
+  _InformesState createState() => _InformesState();
 }
 
-class _MisClasesState extends State<MisClases> {
+class _InformesState extends State<Informes> {
   String url = 'https://tutofinder-movil.herokuapp.com/tutorias';
   List data;
+
   Future<String> makeRequest() async{
     var response = await http.get(Uri.encodeFull(url));
-
     setState(() {
       var extractdata = json.decode(response.body);
       data = extractdata;
@@ -30,29 +31,22 @@ class _MisClasesState extends State<MisClases> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: new AppBar(
-        title: Text('Mis Clases'),
+        title: Text('Mis Informes'),
         backgroundColor: Colors.blue,
         actions: <Widget>[
           IconButton(
               icon: Icon(
-                  Icons.chrome_reader_mode),
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (BuildContext context) => Informes())
-                );
-              })
+                  Icons.add),
+              onPressed: () {})
         ],
       ),
       body: ListView.builder(
           itemCount: data == null ? 0 : data.length,
           itemBuilder: (BuildContext context, i){
             return ListTile(
-              title: Text('Curso: ' + data[i]['curso']['nombre']),
-              subtitle: Text('Docente: ' + data[i]['docente']['nombre']+ ' ' + data[i]['docente']['apellido']),
-              trailing: Text(data[i]['cantidadMinutos'].toString() + 'minutos'),
+              title: Text('Descripcion del Informe: ' + data[i]['informe']['descripcionInforme']),
               leading: Text(data[i]['id'].toString()),
               onTap: (){
-
               },
             );
           }),
