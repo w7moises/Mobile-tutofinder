@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -11,6 +12,7 @@ class MisAnuncios extends StatefulWidget {
 class _MisAnunciosState extends State<MisAnuncios> {
   String url = 'https://tutofinder-movil.herokuapp.com/tutorias';
   List data;
+  Dio dio = new Dio();
 
   Future<String> makeRequest() async{
     var response = await http.get(Uri.encodeFull(url));
@@ -20,6 +22,21 @@ class _MisAnunciosState extends State<MisAnuncios> {
       data = extractdata;
     });
   }
+
+  Future deletecurso(int aux) async {
+
+    final String pathUrl = "https://tutofinder-movil.herokuapp.com/tutorias/"+aux.toString();
+    var response = await dio.delete(pathUrl,data:data, options: Options(
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        }
+    ));
+    print(response.data);
+    return response.data;
+
+  }
+
+
 
   @override
   void initState(){
@@ -47,7 +64,11 @@ class _MisAnunciosState extends State<MisAnuncios> {
               subtitle: Text('Tiempo: ' + data[i]['cantidadMinutos'].toString() + ' minutos'),
               trailing: Icon(Icons.comment),
               leading: Icon(Icons.account_circle),
-              onTap: (){
+              onTap: () async{
+                var aux;
+                aux = int.tryParse(data[i]['id'].toString());
+                print(aux);
+                await deletecurso(aux);
 
               },
             );
