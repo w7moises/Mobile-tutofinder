@@ -1,109 +1,59 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'package:flutter/cupertino.dart';
 
 class FormAnuncioClase extends StatefulWidget {
   @override
   _FormAnuncioClaseState createState() => _FormAnuncioClaseState();
+
 }
 
+
 class _FormAnuncioClaseState extends State<FormAnuncioClase> {
-  String _nombreCurso;
-  String _descripcion;
-  String _tiempoMinutos;
 
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final TextEditingController descripcionController = TextEditingController();
+  final TextEditingController tiempoController = TextEditingController();
+  final TextEditingController nombreController = TextEditingController();
 
-  Widget _buildCurso() {
-    return TextFormField(
-      decoration: InputDecoration(labelText: 'Nombre de Curso'),
-      maxLength: 20,
-      validator: (String value) {
-        if (value.isEmpty) {
-          return 'Campo requerido';
-        }
 
-        return null;
-      },
-      onSaved: (String value) {
-        _nombreCurso = value;
-      },
-    );
-  }
 
-  Widget _buildDescripcion() {
-    return TextFormField(
-      decoration: InputDecoration(labelText: 'Descripción de la tutoría'),
-      maxLength: 60,
-      validator: (String value) {
-        if (value.isEmpty) {
-          return 'Campo requerido';
-        }
-
-        return null;
-      },
-      onSaved: (String value) {
-        _descripcion = value;
-      },
-    );
-  }
-
-  Widget _buildTiempo() {
-    return TextFormField(
-      decoration: InputDecoration(labelText: 'Tiempo'),
-      keyboardType: TextInputType.number,
-      validator: (String value) {
-        int calories = int.tryParse(value);
-
-        if (calories == null || calories <= 0) {
-          return 'Tiempo no puede ser 0';
-        }
-
-        return null;
-      },
-      onSaved: (String value) {
-        _tiempoMinutos = value;
-      },
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        resizeToAvoidBottomPadding: false,
-        appBar: AppBar(title: Text("Form Demo")),
-      body: Container(
-        margin: EdgeInsets.all(24),
-        child: Form(
-          key: _formKey,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              _buildCurso(),
-              _buildDescripcion(),
-              _buildTiempo(),
-              SizedBox(height: 100),
-              RaisedButton(
-                child: Text(
-                  'Submit',
-                  style: TextStyle(color: Colors.blue, fontSize: 16),
-                ),
-                onPressed: () {
-                  if (!_formKey.currentState.validate()) {
-                    return;
-                  }
+      resizeToAvoidBottomPadding: false,
+      appBar: AppBar(title: Text("Crear Anuncio")),
+      body:Container(
+        padding: EdgeInsets.all(32),
+        child: Column(
+          children: <Widget>[
 
-                  _formKey.currentState.save();
+            TextField(
+              controller: descripcionController,
+            ),
 
-                  print(_nombreCurso);
-                  print(_descripcion);
-                  print(_tiempoMinutos);
+            TextField(
+              controller: nombreController,
+            ),
+            TextField(
+              controller: tiempoController,
+            ),
 
-                  //Send to API
-                },
-              )
-            ],
-          ),
+
+            SizedBox(height: 32,),
+
+          ],
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () async{
+        },
+        tooltip: 'Increment',
+        child: Icon(Icons.add),
+      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
+
 }
