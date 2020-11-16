@@ -4,6 +4,8 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
+import 'actualizarAnuncioView.dart';
+
 class MisAnuncios extends StatefulWidget {
   @override
   _MisAnunciosState createState() => _MisAnunciosState();
@@ -51,10 +53,10 @@ class _MisAnunciosState extends State<MisAnuncios> {
         backgroundColor: Colors.blue,
         actions: <Widget>[
           IconButton(
-              icon: Icon(
-                  Icons.chrome_reader_mode),
-              onPressed: () {})
+              icon: Icon(Icons.chrome_reader_mode), onPressed: () {}
+          )
         ],
+
       ),
       body: ListView.builder(
           itemCount: data == null ? 0 : data.length,
@@ -62,17 +64,29 @@ class _MisAnunciosState extends State<MisAnuncios> {
             return ListTile(
               title: Text('Curso: ' + data[i]['curso']['nombre']),
               subtitle: Text('Tiempo: ' + data[i]['cantidadMinutos'].toString() + ' minutos'),
-              trailing: Icon(Icons.comment),
+              trailing:  IconButton(
+                icon: Icon(Icons.delete),
+                onPressed: () async {
+                  var aux;
+                  aux = int.tryParse(data[i]['id'].toString());
+                  print(aux);
+                  await deletecurso(aux);
+                },
+                color: Colors.black,
+              ),
               leading: Icon(Icons.account_circle),
-              onTap: () async{
-                var aux;
-                aux = int.tryParse(data[i]['id'].toString());
-                print(aux);
-                await deletecurso(aux);
-
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (_) => actualizarAnuncio(data[i]['curso']['id'], data[i]['id'], data[i]['descripcionTutoria'],data[i]['curso']['nombre'],data[i]['cantidadMinutos'].toString())));
+                print("Hola");
+                print(data[i]['id']);
               },
+
             );
-          }),
+          }
+      ),
+
+
     );
   }
 }
