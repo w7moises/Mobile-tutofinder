@@ -1,18 +1,16 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app_tutofinder/pages/anunciarclase.dart';
 import 'package:flutter_app_tutofinder/pages/login.dart';
-import 'package:flutter_app_tutofinder/pages/misanuncios.dart';
-import 'package:flutter_app_tutofinder/pages/myprofile.dart';
-import 'package:flutter_app_tutofinder/WebService.dart';
-import 'package:flutter_app_tutofinder/pages/misclases.dart';
+import 'package:flutter_app_tutofinder/pagesPadre/buscarclasePadre.dart';
+import 'package:flutter_app_tutofinder/pagesPadre/misclasesPadre.dart';
+import 'package:flutter_app_tutofinder/pagesPadre/mishijosPadre.dart';
+import 'package:flutter_app_tutofinder/pagesPadre/myprofilePadre.dart';
 
-class MyApp extends StatefulWidget {
+class DashboardPadre extends StatefulWidget {
   @override
-  _MyAppState createState() => _MyAppState();
+  _DashboardPadreState createState() => _DashboardPadreState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _DashboardPadreState extends State<DashboardPadre> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -25,10 +23,10 @@ class _MyAppState extends State<MyApp> {
             child: ListView(
               children: <Widget>[
                 UserAccountsDrawerHeader(
-                  accountName: Text("Henrry Bustos Avila", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17.0),),
-                  accountEmail: Text("henrrypaul_22@hotmail.com"),
+                  accountName: Text("Katrin Maier", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17.0),),
+                  accountEmail: Text("padre@gmail.com"),
                   currentAccountPicture: CircleAvatar(
-                    backgroundImage: AssetImage('assets/docente.jpg'),
+                    backgroundImage: AssetImage('assets/padre.jpg'),
                   ),
                 ),
                 ListTile(
@@ -37,8 +35,7 @@ class _MyAppState extends State<MyApp> {
                   onTap: (){
                     Navigator.push(
                         context,
-                        MaterialPageRoute(
-                            builder: (BuildContext context) => ProfileCard()
+                        MaterialPageRoute(builder: (BuildContext context) => MyProfilePadre()
                         ));
                   },
                 ),
@@ -67,7 +64,7 @@ class _MyAppState extends State<MyApp> {
         body: Stack(
           children: <Widget>[
             Padding(
-              padding: EdgeInsets.fromLTRB(140.0, 40.0, 30.0, 0.0),
+              padding: EdgeInsets.fromLTRB(120.0, 15.0, 30.0, 0.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
@@ -75,8 +72,8 @@ class _MyAppState extends State<MyApp> {
                     child: Row(
                       children: <Widget>[
                         CircleAvatar(
-                          radius: 68,
-                          backgroundImage: AssetImage('assets/docente.jpg'),
+                          radius: 90,
+                          backgroundImage: AssetImage('assets/padre.jpg'),
                         )
                       ],
                     ),
@@ -97,7 +94,7 @@ class _MyAppState extends State<MyApp> {
                     onTap: (){
                       Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (BuildContext context) => ProfileCard()
+                          MaterialPageRoute(builder: (BuildContext context) => MyProfilePadre()
                           ));
                     },
                     splashColor: Colors.brown,
@@ -118,7 +115,7 @@ class _MyAppState extends State<MyApp> {
                     onTap: (){
                       Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (BuildContext context) => FormAnuncioClase()
+                          MaterialPageRoute(builder: (BuildContext context) => MisHijosPadre()
                           ));
                     },
                     splashColor: Colors.blue,
@@ -126,8 +123,8 @@ class _MyAppState extends State<MyApp> {
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: <Widget>[
-                          Icon(Icons.add_box_outlined, size: 70.0, color: Colors.blue),
-                          Text("Anunciar Clases", style: TextStyle(fontSize: 17.0))
+                          Icon(Icons.admin_panel_settings_outlined, size: 70.0, color: Colors.blue),
+                          Text("Mis Hijos", style: TextStyle(fontSize: 17.0))
                         ],
                       ),
                     ),
@@ -139,7 +136,7 @@ class _MyAppState extends State<MyApp> {
                     onTap: (){
                       Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (BuildContext context) => MisClases()
+                          MaterialPageRoute(builder: (BuildContext context) => MisClasesPadre()
                           ));
                     },
                     splashColor: Colors.orange,
@@ -160,7 +157,7 @@ class _MyAppState extends State<MyApp> {
                     onTap: (){
                       Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (BuildContext context) => MisAnuncios()
+                          MaterialPageRoute(builder: (BuildContext context) => BuscarClasesPadre()
                           ));
                     },
                     splashColor: Colors.blueGrey,
@@ -169,7 +166,7 @@ class _MyAppState extends State<MyApp> {
                         mainAxisSize: MainAxisSize.min,
                         children: <Widget>[
                           Icon(Icons.account_balance, size: 70.0, color: Colors.blueGrey),
-                          Text("Mis Anuncios", style: TextStyle(fontSize: 17.0))
+                          Text("Buscar Clases", style: TextStyle(fontSize: 17.0))
                         ],
                       ),
                     ),

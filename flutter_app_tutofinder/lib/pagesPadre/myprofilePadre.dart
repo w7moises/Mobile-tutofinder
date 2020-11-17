@@ -1,18 +1,16 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_app_tutofinder/WebService.dart';
-import 'package:provider/provider.dart';
 import 'package:http/http.dart' as http;
 
-class ProfileCard extends StatefulWidget {
+class MyProfilePadre extends StatefulWidget {
   @override
-  _ProfileCardState createState() => _ProfileCardState();
+  _MyProfilePadreState createState() => _MyProfilePadreState();
 }
 
-class _ProfileCardState extends State<ProfileCard> {
+class _MyProfilePadreState extends State<MyProfilePadre> {
   int score = 0;
-  String url = 'https://tutofinder-movil.herokuapp.com/docentes';
+  String url = 'https://tutofinder-movil.herokuapp.com/padres';
   List data;
 
   Future<String> makeRequest() async{
@@ -51,14 +49,14 @@ class _ProfileCardState extends State<ProfileCard> {
         splashColor: Colors.blue,
       ),
       body: Padding(
-        padding: EdgeInsets.fromLTRB(30.0, 40.0, 30.0, 0.0),
+        padding: EdgeInsets.fromLTRB(30.0, 30.0, 30.0, 0.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Center(
               child: CircleAvatar(
-                backgroundImage: AssetImage('assets/docente.jpg'),
-                radius: 60.0,
+                backgroundImage: AssetImage('assets/padre.jpg'),
+                radius: 90.0,
               ),
             ),
             Divider(
@@ -84,7 +82,7 @@ class _ProfileCardState extends State<ProfileCard> {
             ),
             SizedBox(height: 10.0),
             Text(
-                'DOMICILIO',
+                'DNI',
                 style: TextStyle(
                   color: Colors.blueGrey,
                   letterSpacing: 2.0,
@@ -92,7 +90,7 @@ class _ProfileCardState extends State<ProfileCard> {
             ),
             SizedBox(height: 10.0),
             Text(
-                data[0]['domicilio'],
+                data[0]['dni'],
                 style: TextStyle(
                     color: Colors.amberAccent,
                     letterSpacing: 2.0,
