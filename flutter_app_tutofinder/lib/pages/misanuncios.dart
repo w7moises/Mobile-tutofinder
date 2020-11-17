@@ -38,8 +38,6 @@ class _MisAnunciosState extends State<MisAnuncios> {
 
   }
 
-
-
   @override
   void initState(){
     this.makeRequest();
@@ -67,10 +65,7 @@ class _MisAnunciosState extends State<MisAnuncios> {
               trailing:  IconButton(
                 icon: Icon(Icons.delete),
                 onPressed: () async {
-                  var aux;
-                  aux = int.tryParse(data[i]['id'].toString());
-                  print(aux);
-                  await deletecurso(aux);
+                  await deletecurso(data[i]['id']);
                 },
                 color: Colors.black,
               ),

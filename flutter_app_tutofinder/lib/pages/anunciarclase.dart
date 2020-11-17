@@ -1,4 +1,5 @@
 import 'dart:convert';
+
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_tutofinder/models/tutorias.dart';
@@ -6,6 +7,7 @@ import 'package:http/http.dart' as http;
 import 'package:flutter/cupertino.dart';
 
 import 'dashboard.dart';
+
 
 class FormAnuncioClase extends StatefulWidget {
   @override
@@ -15,10 +17,10 @@ class FormAnuncioClase extends StatefulWidget {
 
 
 class _FormAnuncioClaseState extends State<FormAnuncioClase> {
-
   final TextEditingController descripcionController = TextEditingController();
   final TextEditingController tiempoController = TextEditingController();
   final TextEditingController nombreController = TextEditingController();
+
 
   Dio dio = new Dio();
   Future postData(String descripcion, int aux, int tiempo) async {
@@ -98,18 +100,19 @@ class _FormAnuncioClaseState extends State<FormAnuncioClase> {
   }
 
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        resizeToAvoidBottomPadding: false,
-        appBar: AppBar(title: Text("Crear Anuncio")),
+      resizeToAvoidBottomPadding: false,
+      appBar: AppBar(title: Text("Crear Anuncio")),
       body:Container(
         padding: EdgeInsets.all(32),
         child: Column(
           children: <Widget>[
 
             TextField(
-                controller: descripcionController,
+              controller: descripcionController,
             ),
 
             TextField(
@@ -140,7 +143,6 @@ class _FormAnuncioClaseState extends State<FormAnuncioClase> {
 
           Navigator.of(context).push(MaterialPageRoute(
               builder: (_) => MyApp()));
-
         },
         tooltip: 'Increment',
         child: Icon(Icons.add),
