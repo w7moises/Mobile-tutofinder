@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app_tutofinder/models/tutorias.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/cupertino.dart';
 
@@ -144,3 +145,4 @@ class _actualizarAnuncioState extends State<actualizarAnuncio> {
     );
   }
 }
+
