@@ -51,6 +51,8 @@ flutter:
   assets:
     - assets/henry.png
     - assets/asia.png
+    - assets/docente.jpg
+    - assets/padre.jpg
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
