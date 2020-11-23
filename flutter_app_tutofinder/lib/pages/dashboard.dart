@@ -6,6 +6,7 @@ import 'package:flutter_app_tutofinder/pages/misanuncios.dart';
 import 'package:flutter_app_tutofinder/pages/myprofile.dart';
 import 'package:flutter_app_tutofinder/WebService.dart';
 import 'package:flutter_app_tutofinder/pages/misclases.dart';
+import 'package:flutter_app_tutofinder/pages/membresia.dart';
 
 class MyApp extends StatefulWidget {
   @override
@@ -28,7 +29,7 @@ class _MyAppState extends State<MyApp> {
                   accountName: Text("Henrry Bustos Avila", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17.0),),
                   accountEmail: Text("henrrypaul_22@hotmail.com"),
                   currentAccountPicture: CircleAvatar(
-                    backgroundImage: AssetImage('assets/docente.jpg'),
+                    backgroundImage: AssetImage('assets/henry.png'),
                   ),
                 ),
                 ListTile(
@@ -46,6 +47,18 @@ class _MyAppState extends State<MyApp> {
                   leading: Icon(Icons.vpn_key),
                   title: Text("Ubah Password"),
                 ),
+                ListTile(
+                  leading: Icon(Icons.favorite),
+                  title: Text("Buy membership"),
+                  onTap: (){
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (BuildContext context) => MemberPage()
+                        ));
+                  },
+                ),
+
                 ListTile(
                   leading: Icon(Icons.info),
                   title: Text("Ayuda"),
@@ -76,7 +89,7 @@ class _MyAppState extends State<MyApp> {
                       children: <Widget>[
                         CircleAvatar(
                           radius: 68,
-                          backgroundImage: AssetImage('assets/docente.jpg'),
+                          backgroundImage: AssetImage('assets/henry.png'),
                         )
                       ],
                     ),
