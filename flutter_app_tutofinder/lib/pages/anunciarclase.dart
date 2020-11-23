@@ -109,13 +109,16 @@ class _FormAnuncioClaseState extends State<FormAnuncioClase> {
           children: <Widget>[
 
             TextField(
+              decoration: InputDecoration(labelText: 'Descripción de la tutoría'),
               controller: descripcionController,
             ),
 
             TextField(
+              decoration: InputDecoration(labelText: 'Nombre de la tutoría'),
               controller: nombreController,
             ),
             TextField(
+              decoration: InputDecoration(labelText: 'Tiempo de la Tutoría'),
               controller: tiempoController,
             ),
 

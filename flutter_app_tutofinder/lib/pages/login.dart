@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_tutofinder/pages/dashboard.dart';
+import 'package:flutter_app_tutofinder/pagesPadre/dashboardPadre.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -8,6 +9,9 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  String _correo;
+
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,6 +32,7 @@ class _LoginPageState extends State<LoginPage> {
                 size: 100.0,
               ),
               Form(
+                key: _formKey,
                 child: Theme(
                   data: ThemeData(
                       brightness: Brightness.dark,
@@ -48,6 +53,17 @@ class _LoginPageState extends State<LoginPage> {
                             labelText: 'Enter e-mail',
                           ),
                           keyboardType: TextInputType.emailAddress,
+                          maxLength: 20,
+                          validator: (String value){
+                            if( value.isEmpty){
+                              return 'Campo requerido';
+                            }
+
+                            return null;
+                          },
+                          onSaved: (String value){
+                            _correo = value;
+                          },
                         ),
                         TextFormField(
                           decoration: InputDecoration(
@@ -66,11 +82,25 @@ class _LoginPageState extends State<LoginPage> {
                           textColor: Colors.white,
                           child: Text('Login'),
                           onPressed: (){
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (BuildContext context) => MyApp()
-                                ));
+                            if (!_formKey.currentState.validate()) {
+                              return;
+                            }
+
+                            _formKey.currentState.save();
+                            if (_correo == 'padre@gmail.com'){
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (BuildContext context) => DashboardPadre()
+                                  ));
+                            }
+                            else if (_correo == 'docente@gmail.com'){
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (BuildContext context) => MyApp()
+                                  ));
+                            }
                           },
                           splashColor: Colors.redAccent,
                         )
