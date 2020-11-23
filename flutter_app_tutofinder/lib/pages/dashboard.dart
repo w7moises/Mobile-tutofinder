@@ -80,7 +80,7 @@ class _MyAppState extends State<MyApp> {
         body: Stack(
           children: <Widget>[
             Padding(
-              padding: EdgeInsets.fromLTRB(140.0, 40.0, 30.0, 0.0),
+              padding: EdgeInsets.fromLTRB(120.0, 15.0, 30.0, 0.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
@@ -88,7 +88,7 @@ class _MyAppState extends State<MyApp> {
                     child: Row(
                       children: <Widget>[
                         CircleAvatar(
-                          radius: 68,
+                          radius: 90,
                           backgroundImage: AssetImage('assets/docente.jpg'),
                         )
                       ],
