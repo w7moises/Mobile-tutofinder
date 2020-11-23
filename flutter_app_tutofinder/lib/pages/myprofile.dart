@@ -57,7 +57,7 @@ class _ProfileCardState extends State<ProfileCard> {
           children: <Widget>[
             Center(
               child: CircleAvatar(
-                backgroundImage: AssetImage('assets/henry.png'),
+                backgroundImage: AssetImage('assets/docente.jpg'),
                 radius: 60.0,
               ),
             ),

@@ -26,10 +26,10 @@ class _MyAppState extends State<MyApp> {
             child: ListView(
               children: <Widget>[
                 UserAccountsDrawerHeader(
-                  accountName: Text("Henrry Bustos Avila", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17.0),),
-                  accountEmail: Text("henrrypaul_22@hotmail.com"),
+                  accountName: Text("Karen López", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17.0),),
+                  accountEmail: Text("KarenLopez@gmail.com"),
                   currentAccountPicture: CircleAvatar(
-                    backgroundImage: AssetImage('assets/henry.png'),
+                    backgroundImage: AssetImage('assets/docente.jpg'),
                   ),
                 ),
                 ListTile(
@@ -89,7 +89,7 @@ class _MyAppState extends State<MyApp> {
                       children: <Widget>[
                         CircleAvatar(
                           radius: 68,
-                          backgroundImage: AssetImage('assets/henry.png'),
+                          backgroundImage: AssetImage('assets/docente.jpg'),
                         )
                       ],
                     ),
