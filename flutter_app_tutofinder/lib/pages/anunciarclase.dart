@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_tutofinder/models/tutorias.dart';
@@ -16,71 +15,6 @@ class FormAnuncioClase extends StatefulWidget {
 
 
 class _FormAnuncioClaseState extends State<FormAnuncioClase> {
-
-  final TextEditingController descripcionController = TextEditingController();
-  final TextEditingController tiempoController = TextEditingController();
-  final TextEditingController nombreController = TextEditingController();
-
-
-  Dio dio = new Dio();
-  Future postData(String descripcion, int aux, int tiempo) async {
-
-    final String pathUrl = "https://tutofinder-movil.herokuapp.com/tutorias";
-    dynamic data = {
-      "cantidadMinutos": tiempo,
-      "descripcionTutoria": descripcion,
-      "curso": {
-        "id":aux,
-      },
-      "alumnos": [],
-      "pago": {
-        "id": 1,
-        "descripcionPago": "tutoria X",
-        "padre": {
-          "id": 1,
-          "nombre": "Sasha",
-          "apellido": "Molina",
-          "dni": "56465131",
-          "correo": "ariur@gmail.com",
-          "status": "CREATED"
-        },
-        "tarjeta": {
-          "id": 1,
-          "numeroTarjeta": "1468265998794632",
-          "fechaExpiracion": "8/21",
-          "nombrePoseedor": "Mia kalifa",
-          "status": "CREATED"
-        },
-        "status": "CREATED"
-      },
-      "docente": {
-        "id": 1,
-        "nombre": "Moises",
-        "apellido": "Molina",
-        "dni": "1221315616",
-        "domicilio": "av.aea",
-        "correo": "w7moises@gmail.com",
-        "costo": 24.5,
-        "disponibilidad": true,
-        "numeroCuenta": "21451234",
-        "membresia": true,
-        "status": "CREATED"
-      },
-      "informe": {
-        "id": 1,
-        "descripcionInforme": "Regular desempeño en fisica",
-        "status": "UPDATED"
-      },
-
-    };
-    var response = await dio.post(pathUrl,data:data, options: Options(
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      }
-    ));
-
-    return response.data;
-
 
   final TextEditingController descripcionController = TextEditingController();
   final TextEditingController tiempoController = TextEditingController();
@@ -163,6 +97,7 @@ class _FormAnuncioClaseState extends State<FormAnuncioClase> {
 
   }
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -187,7 +122,6 @@ class _FormAnuncioClaseState extends State<FormAnuncioClase> {
               controller: tiempoController,
             ),
 
-
             SizedBox(height: 32,),
 
           ],
@@ -208,6 +142,7 @@ class _FormAnuncioClaseState extends State<FormAnuncioClase> {
 
           Navigator.of(context).push(MaterialPageRoute(
               builder: (_) => MyApp()));
+
         },
         tooltip: 'Increment',
         child: Icon(Icons.add),
@@ -215,8 +150,6 @@ class _FormAnuncioClaseState extends State<FormAnuncioClase> {
     );
   }
 
-
 }
-
 
 

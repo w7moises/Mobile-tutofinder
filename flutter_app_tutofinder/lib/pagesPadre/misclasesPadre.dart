@@ -32,27 +32,18 @@ class _MisClasesPadreState extends State<MisClasesPadre> {
       appBar: new AppBar(
         title: Text('Mis Clases'),
         backgroundColor: Colors.blue,
-        actions: <Widget>[
-          IconButton(
-              icon: Icon(
-                  Icons.chrome_reader_mode),
-              onPressed: () {})
-        ],
       ),
       body: ListView.builder(
           itemCount: data == null ? 0 : data.length,
           itemBuilder: (BuildContext context, i){
             return ListTile(
-              title: Text('Curso: ' + data[i]['informe']['descripcionInforme']),
+              title: Text('Curso: ' + data[i]['curso']['nombre']),
               subtitle: Text('Tiempo: ' + data[i]['cantidadMinutos'].toString() + ' minutos'),
               trailing: IconButton(icon: Icon(Icons.comment), onPressed: (){
                 Navigator.push(context,
                     MaterialPageRoute(builder: (BuildContext context) => Informe(value: data[i]['id']),)
                 );
               }),
-              title: Text('Curso: ' + data[i]['curso']['nombre']),
-              subtitle: Text('Tiempo: ' + data[i]['cantidadMinutos'].toString() + ' minutos'),
-              trailing: Icon(Icons.comment),
               leading: Icon(Icons.account_circle),
               onTap: (){
 
@@ -102,7 +93,7 @@ class _InformeState extends State<Informe> {
         ),
         body: Center(
           child: ListView.builder(
-            padding: EdgeInsets.all(105.0),
+              padding: EdgeInsets.all(105.0),
               itemCount: data == null ? 0 : 1,
               itemBuilder: (BuildContext context, i){
                 return ListTile(
@@ -116,4 +107,3 @@ class _InformeState extends State<Informe> {
     );
   }
 }
-
