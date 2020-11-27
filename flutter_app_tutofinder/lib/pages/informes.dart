@@ -52,7 +52,6 @@ class _InformesState extends State<Informes> {
               title: Text('Descripcion del Informe: ' + data[i]['descripcionInforme']),
               leading: Text(data[i]['id'].toString()),
               trailing: IconButton(icon: Icon(Icons.edit), onPressed: (){
-
                 Navigator.push(context,
                     MaterialPageRoute(builder: (BuildContext context) => EditarInforme(value: data[i]['id']),)
                 );

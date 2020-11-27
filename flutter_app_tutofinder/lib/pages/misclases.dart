@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_app_tutofinder/pages/informes.dart';
 import 'package:http/http.dart' as http;
 
 import 'informes.dart';
@@ -13,7 +14,6 @@ class MisClases extends StatefulWidget {
 class _MisClasesState extends State<MisClases> {
   String url = 'https://tutofinder-movil.herokuapp.com/tutorias';
   List data;
-
   Future<String> makeRequest() async{
     var response = await http.get(Uri.encodeFull(url));
 
