@@ -12,7 +12,6 @@ class _LoginPageState extends State<LoginPage> {
   String _correo;
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

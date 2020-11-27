@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app_tutofinder/pages/informes.dart';
 import 'package:http/http.dart' as http;
 
+import 'informes.dart';
+
 class MisClases extends StatefulWidget {
   @override
   _MisClasesState createState() => _MisClasesState();

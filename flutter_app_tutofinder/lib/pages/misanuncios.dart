@@ -65,7 +65,14 @@ class _MisAnunciosState extends State<MisAnuncios> {
               trailing:  IconButton(
                 icon: Icon(Icons.delete),
                 onPressed: () async {
+
                   await deletecurso(data[i]['id']);
+
+                  var aux;
+                  aux = int.tryParse(data[i]['id'].toString());
+                  print(aux);
+                  await deletecurso(aux);
+
                 },
                 color: Colors.black,
               ),

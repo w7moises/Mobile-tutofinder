@@ -32,6 +32,12 @@ class _MisClasesPadreState extends State<MisClasesPadre> {
       appBar: new AppBar(
         title: Text('Mis Clases'),
         backgroundColor: Colors.blue,
+        actions: <Widget>[
+          IconButton(
+              icon: Icon(
+                  Icons.chrome_reader_mode),
+              onPressed: () {})
+        ],
       ),
       body: ListView.builder(
           itemCount: data == null ? 0 : data.length,
@@ -44,6 +50,9 @@ class _MisClasesPadreState extends State<MisClasesPadre> {
                     MaterialPageRoute(builder: (BuildContext context) => Informe(value: data[i]['id']),)
                 );
               }),
+              title: Text('Curso: ' + data[i]['curso']['nombre']),
+              subtitle: Text('Tiempo: ' + data[i]['cantidadMinutos'].toString() + ' minutos'),
+              trailing: Icon(Icons.comment),
               leading: Icon(Icons.account_circle),
               onTap: (){
 
@@ -107,3 +116,4 @@ class _InformeState extends State<Informe> {
     );
   }
 }
+
