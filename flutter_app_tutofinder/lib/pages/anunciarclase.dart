@@ -101,7 +101,7 @@ class _FormAnuncioClaseState extends State<FormAnuncioClase> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomPadding: false,
+      //resizeToAvoidBottomPadding: false,
       appBar: AppBar(title: Text("Crear Anuncio")),
       body:Container(
         padding: EdgeInsets.all(32),

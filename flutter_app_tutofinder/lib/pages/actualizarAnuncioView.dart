@@ -102,7 +102,7 @@ class _actualizarAnuncioState extends State<actualizarAnuncio> {
     tiempoController.text = widget.TiempoAnuncio;
     nombreController.text = widget.NombrenAnuncio;
     return Scaffold(
-      resizeToAvoidBottomPadding: false,
+      //resizeToAvoidBottomPadding: false,
       appBar: AppBar(title: Text("Editar Anuncio")),
       body:Container(
         padding: EdgeInsets.all(32),
